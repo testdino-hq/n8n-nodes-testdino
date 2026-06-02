@@ -6,7 +6,7 @@ import type {
 	IWebhookFunctions,
 	IWebhookResponseData,
 } from 'n8n-workflow';
-import { NodeConnectionTypes } from 'n8n-workflow/dist/cjs/interfaces';
+import { NodeConnectionTypes } from 'n8n-workflow';
 import { testDinoApiRequest } from '../TestDino/GenericFunctions';
 
 // Map the node's event options to the backend's webhook event constants.
