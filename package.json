@@ -1,0 +1,60 @@
+{
+  "name": "@testdino/n8n-nodes-testdino",
+  "version": "0.1.0",
+  "description": "n8n community node for TestDino — automate workflows from Playwright test run events and query test analytics.",
+  "keywords": [
+    "n8n-community-node-package",
+    "testdino",
+    "playwright",
+    "testing",
+    "test-analytics",
+    "ci"
+  ],
+  "license": "MIT",
+  "homepage": "https://testdino.com",
+  "author": {
+    "name": "TestDino",
+    "email": "support@testdino.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/testdinohq/n8n-nodes-testdino.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "format": "prettier nodes credentials --write",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/TestDinoApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/TestDino/TestDino.node.js",
+      "dist/nodes/TestDinoTrigger/TestDinoTrigger.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "@types/node": "^20.19.41",
+    "n8n-workflow": "^1.70.0",
+    "prettier": "^3.3.0",
+    "release-it": "20.0.1",
+    "typescript": "^5.6.0"
+  }
+}
