@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/testdinohq/n8n-nodes-testdino.git"
+    "url": "https://github.com/testdino-hq/n8n-nodes-testdino.git"
   },
   "engines": {
     "node": ">=18"

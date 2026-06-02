@@ -19,7 +19,7 @@ export class TestDino implements INodeType {
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Query TestDino test runs, test cases, specs, analytics, and reports',
-		documentationUrl: 'https://github.com/testdinohq/n8n-nodes-testdino',
+		documentationUrl: 'https://github.com/testdino-hq/n8n-nodes-testdino',
 		defaults: { name: 'TestDino' },
 		inputs: [NodeConnectionTypes.Main],
 		outputs: [NodeConnectionTypes.Main],

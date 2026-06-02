@@ -24,7 +24,7 @@ export class TestDinoTrigger implements INodeType {
 		version: 1,
 		subtitle: '={{$parameter["event"]}}',
 		description: 'Starts the workflow when a TestDino test run event occurs',
-		documentationUrl: 'https://github.com/testdinohq/n8n-nodes-testdino',
+		documentationUrl: 'https://github.com/testdino-hq/n8n-nodes-testdino',
 		defaults: { name: 'TestDino Trigger' },
 		inputs: [],
 		outputs: [NodeConnectionTypes.Main],
