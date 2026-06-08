@@ -8,7 +8,7 @@ import type {
 } from 'n8n-workflow';
 import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
-import { testDinoApiRequest, unwrap } from './GenericFunctions';
+import { BASE_URL, resolveProjectId, testDinoApiRequest, unwrap } from './GenericFunctions';
 
 export class TestDino implements INodeType {
 	description: INodeTypeDescription = {
@@ -379,16 +379,13 @@ export class TestDino implements INodeType {
 				if (resource === 'report' && operation === 'generatePdf') {
 					const days = this.getNodeParameter('days', i) as number;
 					const binaryProperty = this.getNodeParameter('binaryProperty', i) as string;
-					const credentials = await this.getCredentials('testDinoApi');
-					const baseUrl = String(credentials.baseUrl || 'https://api.testdino.com').replace(
-						/\/+$/,
-						'',
-					);
-					const projectId = credentials.projectId as string;
+					// Resolve the project from the PAT — the credential only holds the
+					// token; project is discovered via /token-info, like every other op.
+					const projectId = await resolveProjectId.call(this);
 
 					const pdf = (await this.helpers.httpRequestWithAuthentication.call(this, 'testDinoApi', {
 						method: 'GET',
-						url: `${baseUrl}/api/public/v1/${projectId}/reports/pdf`,
+						url: `${BASE_URL}/api/public/v1/${projectId}/reports/pdf`,
 						qs: { days },
 						encoding: 'arraybuffer',
 						returnFullResponse: false,
