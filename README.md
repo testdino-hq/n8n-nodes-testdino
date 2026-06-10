@@ -1,7 +1,7 @@
 # @testdino/n8n-nodes-testdino
 
 [![npm version](https://img.shields.io/npm/v/@testdino/n8n-nodes-testdino.svg)](https://www.npmjs.com/package/@testdino/n8n-nodes-testdino)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/testdino-hq/n8n-nodes-testdino/blob/main/LICENSE)
 
 n8n community node for [TestDino](https://testdino.com) — automate workflows from Playwright test run events and query test analytics.
 
@@ -139,4 +139,4 @@ Schedule Trigger (Daily)
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/testdino-hq/n8n-nodes-testdino/blob/main/LICENSE)
