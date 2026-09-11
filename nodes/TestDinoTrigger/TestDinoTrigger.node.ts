@@ -9,10 +9,12 @@ import type {
 import { NodeConnectionTypes } from 'n8n-workflow';
 import { testDinoApiRequest } from '../TestDino/GenericFunctions';
 
-// Map the node's event options to the backend's webhook event constants.
+// Map the node's event options to the backend's webhook event names. The dotted
+// names replace the retired RUN_STARTED / RUN_FINISHED; both are accepted today,
+// but only these survive once the deprecation window closes.
 const EVENT_MAP: Record<string, string> = {
-	runStarted: 'RUN_STARTED',
-	runFinished: 'RUN_FINISHED',
+	runStarted: 'run.started',
+	runFinished: 'run.finished',
 };
 
 export class TestDinoTrigger implements INodeType {
