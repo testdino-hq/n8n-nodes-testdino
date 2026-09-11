@@ -9,10 +9,17 @@ import type {
 import { NodeConnectionTypes } from 'n8n-workflow';
 import { testDinoApiRequest } from '../TestDino/GenericFunctions';
 
-// Map the node's event options to the backend's webhook event constants.
+// Map the node's event options to the backend's webhook event names. The dotted
+// names replace the retired RUN_STARTED / RUN_FINISHED; both are accepted on
+// subscription writes today, but only these survive the 2026-12-11 cutover.
+//
+// This is the REGISTRATION vocabulary only. The delivered payload is passed
+// through untouched, and until the cutover its `event` still carries the old
+// name with the new one alongside in `eventName` — so a workflow branching on
+// the event should read `{{ $json.eventName || $json.event }}`.
 const EVENT_MAP: Record<string, string> = {
-	runStarted: 'RUN_STARTED',
-	runFinished: 'RUN_FINISHED',
+	runStarted: 'run.started',
+	runFinished: 'run.finished',
 };
 
 export class TestDinoTrigger implements INodeType {
